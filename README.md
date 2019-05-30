@@ -2,7 +2,7 @@ Adam Pittman
 
 | Module | Labs |
 |:-------|:---------|
-| 01 | GitHub |
+| 01 | [GitHub] https://github.com/admptmn/GEOG-678|
 | 02 | ArcGIS Online |
 | 03 | Resume |
 | 04 | Leaflet Basics |
