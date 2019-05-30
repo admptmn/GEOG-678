@@ -1,2 +1,2 @@
-Adam Pittman
+Interactive Charts Lab
 GEOG 678

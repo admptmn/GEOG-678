@@ -1,2 +1,3 @@
-Adam Pittman
-GEOG 678
+The GitHub Lab
+Module 1
+

@@ -1,2 +1,2 @@
-Adam Pittman
+ArcGIS Online Lab
 GEOG 678

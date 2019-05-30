@@ -1,2 +1,2 @@
-Adam Pittman
+Leaflet Basics Lab
 GEOG 678

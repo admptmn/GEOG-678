@@ -1,2 +1,2 @@
-Adam Pittman
+Resume Lab
 GEOG 678
