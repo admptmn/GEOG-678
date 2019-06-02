@@ -1,43 +1,31 @@
+@charset "UTF-8";
+/* CSS Document */
 p {
-    font-family: Arial;
-  }
-  
-  h1 {
-    color: maroon;
-  }
-  
-  h2.destination {
-    font-family: cursive;
-  }
-  
-  h5 {
-    color: rebeccapurple !important;
-  }
-  
-  h5,
-  p {
-    font-family: Georgia;
-  }
-  
-  .title {
-    color: teal;
-  }
-  
-  .uppercase {
-    text-transform: uppercase;
-  }
-  .publish-time {
-    color: gray;
-  }
-  
-  .cursive {
-    font-family: cursive;
-  }
-  
-  .capitalize {
-    text-transform: capitalize;
-  }
-  
-  .description h5 {
-    color: teal;
-  }
+    color: black;
+	font-family: verdana;
+}
+li {
+	color: black;
+	font-family: verdana;
+}
+h4 {
+	color: black;
+	font-family: verdana;
+}
+h1 {
+	font-family: Palatino;
+	text-transform: uppercase;
+	color: midnightblue;
+	font-size: 3em;
+	width: 100%;
+}
+h6 {
+	color: black;
+	font-size: 15px
+}
+.byline {
+	font-family: Helvetica;
+	color: black;
+	font-size: 14px;
+	text-transform: uppercase;
+}
