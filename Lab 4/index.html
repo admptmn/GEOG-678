@@ -68,10 +68,17 @@
 
 	map.locate({setView: true, maxZoom: 18});
 	
-	L.marker([30.615771, -96.340759]).addTo(map)
+		var LeafIcon = L.Icon.extend({
+		options: {
+		}
+	});
+
+	var adamIcon = new LeafIcon({iconUrl: 'landmark.png'});
+	
+	L.marker([30.615771, -96.340759], {icon: adamIcon}).addTo(map)
 	.bindPopup("<b>University Facilities</b><br />Academic Building").openPopup();
 	
-	L.marker([30.617715, -96.336001]).addTo(map)
+	L.marker([30.617715, -96.336001], {icon: adamIcon}).addTo(map)
 	.bindPopup("<b>University Facilities</b><br />O&M Building").openPopup();
 	
 	L.circle([30.609866, -96.340341], 250, {
@@ -80,7 +87,7 @@
 	  fillOpacity: 0.25
 	}).addTo(map).bindPopup("Home of the 12th Man");
 	
-  var popup = L.popup();
+    var popup = L.popup();
 	
 	function onMapClick(e) {
 	  popup
