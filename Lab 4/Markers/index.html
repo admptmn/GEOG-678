@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Adam's Marker Tutorial with Esri</title>
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+    crossorigin=""/>
+    
+	<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+    integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+    crossorigin=""></script>
+
+    <script src="https://unpkg.com/esri-leaflet@2.2.4/dist/esri-leaflet.js"
+    integrity="sha512-tyPum7h2h36X52O2gz+Pe8z/3l+Y9S1yEUscbVs5r5aEY5dFmP1WWRY/WLLElnFHa+k1JBQZSCDGwEAnm2IxAQ=="
+    crossorigin=""></script>
+
+  <style>
+    html, body { height:100%; margin:0; }
+    #map { width:600px; height:400px; }
+  </style>
+</head>
+	
+<body>
+	
+<div id="map"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/mapbox-gl/dist/mapbox-gl.css"/>
+	
+<script src="https://unpkg.com/mapbox-gl/dist/mapbox-gl.js"></script>
+
+<!-- load the latest release from the cdn automatically -->
+<script src="https://unpkg.com/esri-leaflet-vector/dist/esri-leaflet-vector-debug.js"></script>
+
+<script>
+  var map = L.map('map').setView([51.5, -0.09], 13);
+  var layer = L.esri.Vector.basemap('Newspaper').addTo(map);
+
+  function setBasemap(basemap) {
+    if (layer) {
+      map.removeLayer(layer);
+    }
+
+    layer = L.esri.Vector.basemap(basemap);
+    map.addLayer(layer);
+  }
+	
+	var LeafIcon = L.Icon.extend({
+		options: {
+			shadowUrl: 'leaf-shadow.png',
+			iconSize:     [38, 95],
+			shadowSize:   [50, 64],
+			iconAnchor:   [22, 94],
+			shadowAnchor: [4, 62],
+			popupAnchor:  [-3, -76]
+		}
+	});
+
+	var greenIcon = new LeafIcon({iconUrl: 'leaf-green.png'}),
+		redIcon = new LeafIcon({iconUrl: 'leaf-red.png'}),
+		orangeIcon = new LeafIcon({iconUrl: 'leaf-orange.png'});
+
+	L.marker([51.5, -0.09], {icon: greenIcon}).bindPopup("I am a green leaf.").addTo(map);
+	L.marker([51.495, -0.083], {icon: redIcon}).bindPopup("I am a red leaf.").addTo(map);
+	L.marker([51.49, -0.1], {icon: orangeIcon}).bindPopup("I am an orange leaf.").addTo(map);
+
+
+</script>
+
+</body>
+</html>
