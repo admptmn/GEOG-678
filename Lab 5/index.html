@@ -19,11 +19,10 @@
 	
 	<style>
 		html, body { bheight: 100%;bmargin: 0; b}
-		#map { width: 900px; height: 600px; }
-		.info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }
-		.legend { text-align: left; line-height: 18px; color: #555; } .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
+		#map { width: 1200px; height: 600px; }
+		.info { padding: 6px 8px; font: 18px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #7000000; } .legend { text-align: left; line-height: 18px; color: #7000000; }
 	</style>
-
+	
 </head>
 	
 <body>
@@ -37,11 +36,89 @@
 	
 	var map = L.map('map').setView([30.615801, -96.340856], 18);
 	
-	L.esri.basemapLayer('Gray').addTo(map);
+	L.esri.basemapLayer('ImageryClarity').addTo(map);
 	
 	L.geoJson(tamu).addTo(map);
+			
+//Show TAMU building info on hover
 	
+	var info = L.control();
 
+	info.onAdd = function (map) {
+		this._div = L.DomUtil.create('div', 'info');
+		this.update();
+		return this._div;
+	};
+
+	info.update = function (props) {
+		this._div.innerHTML = '<h4>Texas A&M University</h4>' +  (props ?
+			'<b>' + props.BldgName + '</b><br />' + 'Building # ' + props.Number
+			: 'Hover over a Building');
+	};
+
+	info.addTo(map);
+	
+//Highlight the building on the map on hover
+	
+// change the color of the buildings on the map
+	
+//var myStyle = { "color": "white", "weight": 2, "fillColor": "#700000", fillOpacity: 0.7, "opacity": 0.9 };
+
+//L.geoJSON(tamu, { style: myStyle }).addTo(map);
+	
+	function style(feature) {
+	  return {
+	    weight: 2,
+		fillColor: "#700000",
+		opacity: 0.9,
+		color: "white",
+		fillOpacity: 0.7,
+		};
+	}
+	
+	function highlightFeature(e) {
+    var layer = e.target;
+
+    layer.setStyle({
+        weight: 4,
+        color: "black",
+		fillColor: "yellow",
+        dashArray: '',
+        fillOpacity: 0.7
+        });
+
+    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+        layer.bringToFront();
+       }
+		
+	info.update(layer.feature.properties);
+		
+    }
+	
+	var geojson;
+	
+	function resetHighlight(e) {
+      geojson.resetStyle(e.target);
+	  info.update();
+      }
+	
+	function zoomToFeature(e) {
+	  map.fitBounds(e.target.getBounds());
+	  }
+	
+	function onEachFeature(feature, layer) {
+	  layer.on({
+		mouseover: highlightFeature,
+		mouseout: resetHighlight,
+		click: zoomToFeature
+		});
+	  }
+	
+	geojson = L.geoJson(tamu, {
+	  style: style,
+	  onEachFeature: onEachFeature
+	  }).addTo(map);
+			
 </script>
 
 </body>
