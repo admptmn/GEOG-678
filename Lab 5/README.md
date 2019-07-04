@@ -5,4 +5,4 @@ GEOG 678
 
 ![Screenshot 2](https://github.com/admptmn/GEOG-678/blob/master/Lab%205/Screenshots/Tutor1.png)
 
-![Screenshot 3]
+![Screenshot 3](https://github.com/admptmn/GEOG-678/blob/master/Lab%205/Screenshots/Tutor2.png)
