@@ -8,6 +8,8 @@ https://madmapper.maps.arcgis.com/apps/opsdashboard/index.html#/fbbc7f043cf241a3
 
 ![Screenshot 0](https://github.com/admptmn/GEOG-678/blob/master/Lab%207/Dashboard%20Screenshot.png)
 
+This is my D3 Chart
 ![Screenshot 1](https://github.com/admptmn/GEOG-678/blob/master/Lab%207/D3.js/D3%20Screenshot.png)
 
+This is my Highcharts Chart
 ![Screenshot 2](https://github.com/admptmn/GEOG-678/blob/master/Lab%207/Highchart/Highchart%20Screenshot.png)
