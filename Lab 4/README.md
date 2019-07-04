@@ -7,3 +7,5 @@ GEOG 678
 
 ![Screenshot 3](https://github.com/admptmn/GEOG-678/blob/master/Lab%204/Screenshots/Mobile.png)
 
+![Screenshot 4](https://github.com/admptmn/GEOG-678/blob/master/Lab%204/Screenshots/Quick%20Start.png)
+
