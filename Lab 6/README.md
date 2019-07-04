@@ -8,3 +8,5 @@ https://storymaps-nextgen.arcgis.com/beta/stories/7c59cea31e284dc893c4fd165abf27
 
 Adam's StoryMap #2
 https://storymaps-nextgen.arcgis.com/beta/stories/a537b93f84ac4aada6415d039447bcb1
+
+![Screenshot 2](https://github.com/admptmn/GEOG-678/blob/master/Lab%206/Screenshots/Story2.png)
