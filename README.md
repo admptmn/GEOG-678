@@ -9,4 +9,4 @@ Adam Pittman
 | 05 | [Leaflet Advanced](https://github.com/admptmn/GEOG-678/blob/master/Lab%205/index.html) |
 | 06 | [Story Maps](https://storymaps-nextgen.arcgis.com/beta/stories/7c59cea31e284dc893c4fd165abf2729) |
 | 07 | [Interactive Charts](https://github.com/admptmn/GEOG-678/blob/master/Lab%207/README.md) |
-| 08 | Feature Layers & Web Editing |
+| 08 | [Feature Layers & Web Editing](https://github.com/admptmn/GEOG-678/tree/master/Lab%208) |
