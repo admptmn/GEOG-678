@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Adam's Lab 8 Application</title>
+
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.12/esri/themes/light/main.css"
+    />
+    <script src="https://js.arcgis.com/4.12/"></script>
+
+    <script>
+      require([
+        "esri/Map",
+        "esri/layers/FeatureLayer",
+        "esri/views/MapView",
+        "esri/widgets/Legend"
+      ], function(Map, FeatureLayer, MapView, Legend) {
+        
+		  // Create the map
+        var map = new Map({
+          basemap: "streets-night-vector"
+        });
+
+        // Create the MapView
+        var view = new MapView({
+          container: "viewDiv",
+          map: map,
+          center: [-117.162296, 32.707909],
+          zoom: 14
+        });
+
+        view.ui.add(new Legend({ view: view }), "bottom-left");
+
+        var template = {
+          // autocasts as new PopupTemplate()
+          title: "{name} from {state}",
+          content: [
+            {
+              type: "fields",
+              fieldInfos: [
+                {
+                  fieldName: "name",
+                  label: "Conference Friend"
+                },
+                {
+                  fieldName: "state",
+                  label: "Traveled From",
+                  format: {
+                    digitSeparator: true,
+                    places: 0
+                  }
+                },
+                {
+                  fieldName: "visits",
+                  label: "Attended the conference",
+                  format: {
+                    digitSeparator: true,
+                    places: 0
+                  }
+                }
+              ]
+            }
+          ]
+        };
+
+        // Reference the popupTemplate instance in the
+        // popupTemplate property of FeatureLayer
+        var featureLayer = new FeatureLayer({
+          url:
+            "https://services6.arcgis.com/tQcT5FZCfnknG6zQ/arcgis/rest/services/uc_friends/FeatureServer",
+          popupTemplate: template
+        });
+        map.add(featureLayer);
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+</html>
